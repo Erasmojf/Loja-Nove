@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "1071025652746",
+    "project_id": "loja-nove",
+    "storage_bucket": "loja-nove.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1071025652746:android:4e400f8fa65a1eb529cbf3",
+        "android_client_info": {
+          "package_name": "br.com.loja_nove"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1071025652746-nee9h3bji1magscr044to885hqso9nbt.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAPg9GEj6H6LIRKKroyfX8cSExgM6vHpsE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1071025652746-nee9h3bji1magscr044to885hqso9nbt.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

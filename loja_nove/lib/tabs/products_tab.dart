@@ -2,7 +2,12 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:loja_nove/tiles/category_tile.dart';
 
-class ProductsTab extends StatelessWidget {
+class ProductsTab extends StatefulWidget {
+  @override
+  _ProductsTabState createState() => _ProductsTabState();
+}
+
+class _ProductsTabState extends State<ProductsTab> {
   @override
   Widget build(BuildContext context) {
     return FutureBuilder<QuerySnapshot>(
@@ -19,7 +24,6 @@ class ProductsTab extends StatelessWidget {
                     }).toList(),
                     color: Colors.grey[500])
                 .toList();
-
             return ListView(
               children: dividerTile,
             );

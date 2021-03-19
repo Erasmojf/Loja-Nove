@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:loja_nove/screens/signup_screen.dart';
 
 class LoginScreen extends StatefulWidget {
   @override
@@ -16,7 +17,10 @@ class _LoginScreenState extends State<LoginScreen> {
         centerTitle: true,
         actions: [
           FlatButton(
-            onPressed: () {},
+            onPressed: () {
+              Navigator.of(context).pushReplacement(
+                  MaterialPageRoute(builder: (context) => SignUpScreen()));
+            },
             child: Text(
               'CRIAR CONTA',
               style: TextStyle(

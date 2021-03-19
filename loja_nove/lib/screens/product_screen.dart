@@ -103,6 +103,33 @@ class _ProductScreenState extends State<ProductScreen> {
                     }).toList(),
                   ),
                 ),
+                SizedBox(height: 16.0),
+                SizedBox(
+                  height: 44.0,
+                  child: ElevatedButton(
+                    onPressed: size != null ? () {} : null,
+                    child: Text(
+                      'Adicionar ao Carinho',
+                      style: TextStyle(
+                        fontSize: 16.0,
+                      ),
+                    ),
+                  ),
+                ),
+                SizedBox(height: 16.0),
+                Text(
+                  "Descricao",
+                  style: TextStyle(
+                    fontSize: 16.0,
+                    fontWeight: FontWeight.w500,
+                  ),
+                ),
+                Text(
+                  product.description,
+                  style: TextStyle(
+                    fontSize: 16.0,
+                  ),
+                ),
               ],
             ),
           )

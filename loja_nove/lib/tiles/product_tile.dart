@@ -23,13 +23,12 @@ class ProductTile extends StatelessWidget {
                   ),
                   Expanded(
                     child: Container(
-                      padding: EdgeInsets.all(10.0),
+                      padding: EdgeInsets.all(8.0),
                       child: Column(
                         children: [
                           Text(
                             product.title,
                             style: TextStyle(
-                              fontSize: 18.0,
                               fontWeight: FontWeight.w500,
                             ),
                           ),
@@ -37,7 +36,7 @@ class ProductTile extends StatelessWidget {
                             "R\$ ${product.price.toStringAsFixed(2)}",
                             style: TextStyle(
                               color: Theme.of(context).primaryColor,
-                              fontSize: 17.0,
+                              fontSize: 14.0,
                               fontWeight: FontWeight.bold,
                             ),
                           )

@@ -14,7 +14,7 @@ class ProductData {
       id = snapshot.id;
       title = snapshot["title"];
       description = snapshot.get("description");
-      price = snapshot["price"]+ 0.0;
+      price = snapshot["price"] + 0.0;
       images = snapshot["images"];
       sizes = snapshot.get("sizes");
   }

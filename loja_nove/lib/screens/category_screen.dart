@@ -27,9 +27,7 @@ class CategoryScreen extends StatelessWidget {
           ),
         ),
         body: FutureBuilder(
-          future: FirebaseFirestore.instance
-              .collection("products")
-              .doc(snapshot.id)
+          future: FirebaseFirestore.instance.collection("products").doc(snapshot.id)
               .collection("items")
               .get(),
           builder: (context, snapshot) {
@@ -49,21 +47,21 @@ class CategoryScreen extends StatelessWidget {
                         crossAxisSpacing: 4.0,
                         childAspectRatio: 0.65,
                       ),
-                      itemCount: snapshot.data.documents.length,
+                      itemCount: snapshot.data.docs.length,
                       itemBuilder: (context, index) {
                         return ProductTile(
                             "grid",
                             ProductData.fromDocument(
-                                snapshot.data.documents[index]));
+                                snapshot.data.docs[index]));
                       }),
                   ListView.builder(
                     padding: EdgeInsets.all(10.0),
-                    itemCount: snapshot.data.documents.length,
+                    itemCount: snapshot.data.docs.length,
                     itemBuilder: (context, index) {
                       return ProductTile(
                           "list",
                           ProductData.fromDocument(
-                              snapshot.data.documents[index]));
+                              snapshot.data.docs[index]));
                     },
                   ),
                 ],

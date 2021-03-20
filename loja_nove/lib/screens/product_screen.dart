@@ -114,6 +114,9 @@ class _ProductScreenState extends State<ProductScreen> {
                         fontSize: 16.0,
                       ),
                     ),
+                    style: ElevatedButton.styleFrom(
+                      primary: primeryColor,
+                    ),
                   ),
                 ),
                 SizedBox(height: 16.0),

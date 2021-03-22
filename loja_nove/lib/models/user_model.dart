@@ -49,8 +49,7 @@ class UserModel extends Model {
     isLoading = true;
     notifyListeners();
     _auth
-        .createUserWithEmailAndPassword(
-            email: userData['email'], password: pass)
+        .signInWithEmailAndPassword(email: email, password: pass)
         .then((user) async {
       firebaseUser = user.user;
       await _loadCurrentUser();
@@ -66,6 +65,7 @@ class UserModel extends Model {
   }
 
   void recoverPass() {}
+
   void signOut() async {
     await _auth.signOut();
     userData = Map();
@@ -86,17 +86,16 @@ class UserModel extends Model {
   }
 
   Future<Null> _loadCurrentUser() async {
-    if (firebaseUser = null) {
-      firebaseUser = await _auth.currentUser;
-    } else if (firebaseUser != null) {
-      if (userData['name'] == null) {
+    if (firebaseUser == null) firebaseUser = await _auth.currentUser;
+    if (firebaseUser != null) {
+      if (userData["name"] == null) {
         DocumentSnapshot docUser = await FirebaseFirestore.instance
             .collection('users')
             .doc(firebaseUser.uid)
             .get();
         userData = docUser.data();
       }
-      notifyListeners();
     }
+    notifyListeners();
   }
 }

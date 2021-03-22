@@ -17,7 +17,7 @@ class _LoginScreenState extends State<LoginScreen> {
     final primeryColor = Theme.of(context).primaryColor;
     final _formKey = GlobalKey<FormState>();
     return Scaffold(
-      key: _formKey,
+      key: _scaffoldKey,
       appBar: AppBar(
         title: Text('Login'),
         centerTitle: true,
@@ -61,6 +61,7 @@ class _LoginScreenState extends State<LoginScreen> {
                 ),
                 SizedBox(height: 16.0),
                 TextFormField(
+                  obscureText: true,
                   controller: _passController,
                   validator: (text) {
                     if (text.isEmpty || text.length < 6)
@@ -122,10 +123,13 @@ class _LoginScreenState extends State<LoginScreen> {
   void _onFail() {
     _scaffoldKey.currentState.showSnackBar(
       SnackBar(
-        content: Text('Falha ao fazer login!'),
+        content: Text('Falha ao logar!'),
         backgroundColor: Colors.redAccent,
         duration: Duration(seconds: 2),
       ),
     );
+    Future.delayed(Duration(seconds: 2)).then((_) {
+      Navigator.of(context).pop();
+    });
   }
 }

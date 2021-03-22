@@ -7,6 +7,7 @@ class UserModel extends Model {
   FirebaseAuth _auth = FirebaseAuth.instance;
   User firebaseUser;
   Map<String, dynamic> userData = Map();
+  static UserModel of(BuildContext context) => ScopedModel.of(context);
 
   @override
   void addListener(VoidCallback listner) {
@@ -64,7 +65,9 @@ class UserModel extends Model {
     });
   }
 
-  void recoverPass() {}
+  void recoverPass(String email) {
+    _auth.sendPasswordResetEmail(email: email);
+  }
 
   void signOut() async {
     await _auth.signOut();

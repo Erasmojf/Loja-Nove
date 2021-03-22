@@ -75,12 +75,34 @@ class _LoginScreenState extends State<LoginScreen> {
                 SizedBox(height: 10.0),
                 Align(
                   alignment: Alignment.bottomRight,
-                  child: Text(
-                    'Esquece a minha senha',
-                    style: TextStyle(
-                      fontSize: 16.0,
+                  child: FlatButton(
+                    onPressed: () {
+                      if (_emailController.text.isEmpty) {
+                        _scaffoldKey.currentState.showSnackBar(
+                          SnackBar(
+                            content: Text('Insira o seu e-mail'),
+                            backgroundColor: Colors.redAccent,
+                            duration: Duration(seconds: 2),
+                          ),
+                        );
+                      } else {
+                        model.recoverPass(_emailController.text);
+                        _scaffoldKey.currentState.showSnackBar(
+                          SnackBar(
+                            content: Text('Verifique o seu e-mail'),
+                            backgroundColor: primeryColor,
+                            duration: Duration(seconds: 2),
+                          ),
+                        );
+                      }
+                    },
+                    child: Text(
+                      'Esquece a minha senha',
+                      style: TextStyle(
+                        fontSize: 16.0,
+                      ),
+                      textAlign: TextAlign.right,
                     ),
-                    textAlign: TextAlign.right,
                   ),
                 ),
                 Padding(

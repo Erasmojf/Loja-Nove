@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:loja_nove/models/cart_model.dart';
 import 'package:loja_nove/models/user_model.dart';
 import 'package:loja_nove/screens/home_screen.dart';
 
@@ -11,13 +12,18 @@ void main() async {
   runApp(
     ScopedModel<UserModel>(
       model: UserModel(),
-      child: MaterialApp(
-        debugShowCheckedModeBanner: false,
-        home: HomeScreen(),
-        theme: ThemeData(
-            primarySwatch: Colors.blue,
-            primaryColor: Color.fromARGB(255, 4, 125, 141)),
-      ),
+      child: ScopedModelDescendant<UserModel>(builder: (context, child, model) {
+        return ScopedModel<CartModel>(
+          model: CartModel(model),
+          child: MaterialApp(
+            debugShowCheckedModeBanner: false,
+            home: HomeScreen(),
+            theme: ThemeData(
+                primarySwatch: Colors.blue,
+                primaryColor: Color.fromARGB(255, 4, 125, 141)),
+          ),
+        );
+      }),
     ),
   );
 }

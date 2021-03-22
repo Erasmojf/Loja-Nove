@@ -1,4 +1,3 @@
-
 import 'package:cloud_firestore/cloud_firestore.dart';
 
 class ProductData {
@@ -10,13 +9,15 @@ class ProductData {
   List images;
   List sizes;
 
-  ProductData.fromDocument(DocumentSnapshot snapshot){
-      id = snapshot.id;
-      title = snapshot["title"];
-      description = snapshot.get("description");
-      price = snapshot["price"] + 0.0;
-      images = snapshot["images"];
-      sizes = snapshot.get("sizes");
+  ProductData.fromDocument(DocumentSnapshot snapshot) {
+    id = snapshot.id;
+    title = snapshot["title"];
+    description = snapshot.get("description");
+    price = snapshot["price"] + 0.0;
+    images = snapshot["images"];
+    sizes = snapshot.get("sizes");
   }
-
+  Map<String, dynamic> toResumeMap() {
+    return {'title': title, 'description': description, 'price': price};
+  }
 }

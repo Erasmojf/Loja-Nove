@@ -12,6 +12,7 @@ class CartScreen extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: Text('Meu carinho'),
+        centerTitle: true,
         actions: [
           Container(
             padding: EdgeInsets.all(10.0),

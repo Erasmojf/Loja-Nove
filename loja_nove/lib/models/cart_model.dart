@@ -7,7 +7,9 @@ import 'package:scoped_model/scoped_model.dart';
 class CartModel extends Model {
   UserModel user;
 
-  List<CartProducts> product = [];
+  List<CartProducts> products = [];
+
+  bool isLoading = false;
 
   static CartModel of(BuildContext context) =>
       ScopedModel.of<CartModel>(context);
@@ -15,7 +17,7 @@ class CartModel extends Model {
   CartModel(this.user);
 
   void addCartItem(CartProducts cartProduct) {
-    product.add(cartProduct);
+    products.add(cartProduct);
     FirebaseFirestore.instance
         .collection('users')
         .doc(user.firebaseUser.uid)
@@ -36,7 +38,7 @@ class CartModel extends Model {
         .doc(cartProducts.cid)
         .delete();
 
-    product.remove(cartProducts);
+    products.remove(cartProducts);
 
     notifyListeners();
   }

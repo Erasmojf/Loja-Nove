@@ -4,6 +4,7 @@ import 'package:loja_nove/datas/cart_product.dart';
 import 'package:loja_nove/datas/product_data.dart';
 import 'package:loja_nove/models/cart_model.dart';
 import 'package:loja_nove/models/user_model.dart';
+import 'package:loja_nove/screens/cart_screen.dart';
 import 'package:loja_nove/screens/login_screen.dart';
 
 class ProductScreen extends StatefulWidget {
@@ -121,6 +122,9 @@ class _ProductScreenState extends State<ProductScreen> {
                               cartProduct.category = cartProduct.category;
 
                               CartModel.of(context).addCartItem(cartProduct);
+
+                              Navigator.of(context).push(MaterialPageRoute(
+                                  builder: (context) => CartScreen()));
                             } else {
                               Navigator.of(context).push(
                                 MaterialPageRoute(

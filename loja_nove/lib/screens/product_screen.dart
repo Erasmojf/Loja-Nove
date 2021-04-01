@@ -115,11 +115,11 @@ class _ProductScreenState extends State<ProductScreen> {
                     onPressed: size != null
                         ? () {
                             if (UserModel.of(context).isLoggedIn()) {
-                              CartProducts cartProduct = CartProducts();
+                              CartProduct cartProduct = CartProduct();
                               cartProduct.size = size;
                               cartProduct.quantity = 1;
-                              cartProduct.pid = cartProduct.pid;
-                              cartProduct.category = cartProduct.category;
+                              cartProduct.pid = product.id;
+                              cartProduct.category = product.category;
 
                               CartModel.of(context).addCartItem(cartProduct);
 

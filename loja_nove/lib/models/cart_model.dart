@@ -7,7 +7,7 @@ import 'package:scoped_model/scoped_model.dart';
 class CartModel extends Model {
   UserModel user;
 
-  List<CartProducts> products = [];
+  List<CartProduct> products = [];
 
   bool isLoading = false;
 
@@ -20,7 +20,7 @@ class CartModel extends Model {
     }
   }
 
-  void addCartItem(CartProducts cartProduct) {
+  void addCartItem(CartProduct cartProduct) {
     products.add(cartProduct);
     FirebaseFirestore.instance
         .collection('users')
@@ -34,7 +34,7 @@ class CartModel extends Model {
     notifyListeners();
   }
 
-  void removeCartItem(CartProducts cartProducts) {
+  void removeCartItem(CartProduct cartProducts) {
     FirebaseFirestore.instance
         .collection('users')
         .doc(user.firebaseUser.uid)
@@ -47,7 +47,7 @@ class CartModel extends Model {
     notifyListeners();
   }
 
-  void decProduct(CartProducts cartProduct) {
+  void decProduct(CartProduct cartProduct) {
     cartProduct.quantity--;
 
     FirebaseFirestore.instance
@@ -60,7 +60,7 @@ class CartModel extends Model {
     notifyListeners();
   }
 
-  void inProduct(CartProducts cartProduct) {
+  void inProduct(CartProduct cartProduct) {
     cartProduct.quantity++;
     FirebaseFirestore.instance
         .collection('users')
@@ -79,7 +79,7 @@ class CartModel extends Model {
         .collection('cart')
         .get();
 
-    products = query.docs.map((doc) => CartProducts.fromDocument(doc)).toList();
+    products = query.docs.map((doc) => CartProduct.fromDocument(doc)).toList();
     notifyListeners();
   }
 }

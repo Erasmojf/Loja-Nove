@@ -12,7 +12,11 @@ void main() async {
   runApp(
     ScopedModel<UserModel>(
       model: UserModel(),
-      child: ScopedModelDescendant<UserModel>(builder: (context, child, model) {
+      child: ScopedModelDescendant<UserModel>(builder: (
+        context,
+        child,
+        model,
+      ) {
         return ScopedModel<CartModel>(
           model: CartModel(model),
           child: MaterialApp(

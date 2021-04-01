@@ -5,9 +5,12 @@ import 'package:loja_nove/datas/product_data.dart';
 import 'package:loja_nove/models/cart_model.dart';
 
 class CartTile extends StatelessWidget {
-  final CartProducts cartProduct;
+  final CartProduct cartProduct;
 
-  CartTile(this.cartProduct);
+  CartTile(this.cartProduct) {
+    print(
+        "Categoria: ${cartProduct.category}  | ID do produto: ${cartProduct.pid}");
+  }
   @override
   Widget build(BuildContext context) {
     final Color primeryColor = Theme.of(context).primaryColor;

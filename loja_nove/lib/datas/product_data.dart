@@ -12,10 +12,10 @@ class ProductData {
   ProductData.fromDocument(DocumentSnapshot snapshot) {
     id = snapshot.id;
     title = snapshot["title"];
-    description = snapshot.get("description");
+    description = snapshot['description'];
     price = snapshot["price"] + 0.0;
     images = snapshot["images"];
-    sizes = snapshot.get("sizes");
+    sizes = snapshot['sizes'];
   }
   Map<String, dynamic> toResumeMap() {
     return {'title': title, 'description': description, 'price': price};

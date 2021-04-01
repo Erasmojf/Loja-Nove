@@ -1,7 +1,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:loja_nove/datas/product_data.dart';
 
-class CartProducts {
+class CartProduct {
   String cid;
   String category;
   String pid;
@@ -9,9 +9,9 @@ class CartProducts {
   String size;
   ProductData productData;
 
-  CartProducts();
+  CartProduct();
 
-  CartProducts.fromDocument(DocumentSnapshot document) {
+  CartProduct.fromDocument(DocumentSnapshot document) {
     cid = document.id;
     category = document.get('category');
     pid = document.get('pid');
@@ -24,7 +24,7 @@ class CartProducts {
       'pid': pid,
       'quantity': quantity,
       'size': size,
-      // 'product': productData.toResumeMap()
+      //'product': productData.toResumeMap()
     };
   }
 }
